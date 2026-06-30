@@ -1,44 +1,19 @@
-package aula_05_estruturas_condicionais
+package aula_06_1_controle_de_excecoes
+
+import java.security.InvalidParameterException
 
 fun main() {
+    var x = 1
 
-    // if / else / else if
-
-    var x = 50
-    var y = 150
-
-    val result = if (x > y) {
-        "X > Y"
-    } else if (x < y) {
-        "X < Y"
-    } else if (x == y) {
-        "X == Y"
-    } else {
-        "else"
+    x = try {
+        // throw InvalidParameterException()
+        // println(x)
+        1/0
+    } catch (e: ArithmeticException) {
+        // println("Erro de expressão aritmética.")
+        3
+    } catch (e: Exception) {
+        // println("Erro genérico.")
+        4
     }
-
-    println("if/ else if/ else:")
-    println(result)
-
-    // when
-
-    val result2 = when(x) {
-        in 1..100 -> "1..100"
-        100 -> "100"
-        in 101..200 -> "101..200"
-        else -> "else"
-    }
-
-    println("when x:")
-    println(result2)
-
-    val result3 = when(y) {
-        in 1..100 -> "1..100"
-        100 -> "100"
-        in 101..200 -> "101..200"
-        else -> "else"
-    }
-
-    println("when y:")
-    println(result3)
 }
